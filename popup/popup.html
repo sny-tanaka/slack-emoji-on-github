@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="./popup.css">
+    <title>Slack絵文字onGithub</title>
+  </head>
+  <body class="content">
+    <div class="box">
+        <div>
+            <div class="row">
+                <div>Slackトークン</div>
+                <input type="text" class="input w-120" id="slack_token" value="" />
+            </div>
+        </div>
+        <div class="row full">
+            <button class="full btn" id="update">絵文字更新</button>
+        </div>
+        <div>
+            <div class="row">
+                <div>絵文字検索</div>
+                <input type="text" class="input w-120" id="search_word" value="" />
+            </div>
+        </div>
+        <div id="emoji_result"></div>
+        <div id="info"></div>
+        <div id="error"></div>
+    </div>
+    <script type="text/javascript" src="./popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+body {
+    min-width: 300px;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    color: #41133F;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.full {
+    width: 100%;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid #41133F;
+    background-color: #ffffff;
+    cursor: pointer;
+    color: #41133F;
+}
+
+.input {
+    border: 0;
+    border-bottom: 2px solid #41133F;
+    height: 2rem;
+}
+
+.w-120 {
+    width: calc(100% - 120px);
+}
+
+#emoji_result {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    height: 100px;
+    overflow-y: auto;
+    border: 2px solid #6d676d;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+#emoji_result img {
+    width: 2rem;
+    height: 2rem;
+}
+
+#error {
+    color: red;
+    font-size: 0.8rem;
+}

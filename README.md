@@ -2,6 +2,7 @@
 This is a Chrome extension that allows you to display custom Slack emojis on github.
 
 ## Install
+[TBD] This extension is currently under review by Google
 
 ## How to use
 ### Get Slack token

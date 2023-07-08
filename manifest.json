@@ -1,0 +1,36 @@
+{
+    "name": "Slack絵文字onGithub",
+    "description": "Slack絵文字をGithub上で表示できるようにする拡張機能",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icons/16.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
+    },
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "matches": [
+                "https://github.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end",
+            "all_frames": false
+        }
+    ],
+    "action": {
+        "default_popup": "./popup/popup.html"
+    },
+    "permissions": [
+        "storage",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://slack.com/api/"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    }
+}

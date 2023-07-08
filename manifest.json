@@ -16,6 +16,9 @@
             "js": [
                 "content.js"
             ],
+            "css": [
+                "content.css"
+            ],
             "run_at": "document_end",
             "all_frames": false
         }
@@ -28,7 +31,8 @@
         "webRequest"
     ],
     "host_permissions": [
-        "https://slack.com/api/"
+        "https://slack.com/api/",
+        "https://github.com/"
     ],
     "background": {
         "service_worker": "background.js"

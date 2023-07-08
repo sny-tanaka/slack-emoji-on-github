@@ -1,5 +1,4 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('Receive message');
     if (request.type === "fetchSlackEmoji") {
         console.log('Fetch slack emoji');
         getCustomEmojiFromSlack(request.token)
@@ -22,7 +21,7 @@ const getCustomEmojiFromSlack = async (token) => {
     });
     const json = await response.json();
     if (!json.ok) {
-        alert('Slackのカスタム絵文字の取得に失敗しました');
+        console.error('Slackのカスタム絵文字の取得に失敗しました');
         return;
     }
     return json.emoji;
@@ -30,6 +29,7 @@ const getCustomEmojiFromSlack = async (token) => {
 
 // ページの読み込みの発生しないページの更新をキャッチする
 chrome.webRequest.onCompleted.addListener((details) => {
+    console.log('onCompleted');
     chrome.tabs.query({
         active: true,
         windowId: chrome.windows.WINDOW_ID_CURRENT

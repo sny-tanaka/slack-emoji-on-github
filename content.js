@@ -22,6 +22,7 @@ const replaceEmoji = () => {
 
 const replaceEmojiText = (text) => {
     let index = 0;
+    const replaceTarget = [];
     while (true) {
         // 最初のコロン
         const firstColonIndex = text.indexOf(":", index);
@@ -35,14 +36,18 @@ const replaceEmojiText = (text) => {
         }
         // コロンで挟まれた文字列を取得
         const emojiText = text.substring(firstColonIndex + 1, secondColonIndex);
-        // 絵文字のURLを取得
-        const emojiUrl = customEmoji[emojiText];
-        if (emojiUrl) {
-            // 絵文字のURLがある場合は画像に置換
-            text = text.replace(`:${emojiText}:`, `<img src="${emojiUrl}" alt="${emojiText}" style="height:20px;vertical-align:sub;">`);
-        }
+        // 置換対象に追加
+        replaceTarget.push(emojiText);
+
         index = secondColonIndex + 1;
-    };
+    }
+    for (const rt of replaceTarget) {
+        // 絵文字のURLを取得
+        const emojiUrl = customEmoji[rt];
+        if (emojiUrl) {
+            text = text.replace(`:${rt}:`, `<img src="${emojiUrl}" alt="${rt}" class="custom_emoji" />`);
+        }
+    }
     return text;
 };
 
@@ -55,4 +60,5 @@ main();
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     replaceEmoji();
+    return true;
 });

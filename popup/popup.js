@@ -35,7 +35,8 @@ const listUpCustomEmoji = () => {
     for (const key in searchedEmoji) {
         const img = document.createElement('img');
         img.src = searchedEmoji[key];
-        img.alt = key;
+        img.title = key;
+        img.onclick = () => copyToClipboard(key);
         emojiResult.appendChild(img);
     }
 };
@@ -77,12 +78,30 @@ const getCustomEmojiFromLocalStorage = async () => {
 const showInfo = (msg) => {
     const infoElement = document.getElementById('info');
     infoElement.innerText = msg;
+    infoElement.animate(
+        [
+            { opacity: 0 },
+            { opacity: 1 },
+            { opacity: 1 },
+            { opacity: 0 },
+        ],
+        {
+            duration: 3500,
+            fill: 'forwards',
+        },
+    )
 }
 
 const showError = (error) => {
     const errorElement = document.getElementById('error');
     errorElement.innerText = error;
 }
+
+const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+        showInfo('クリップボードにコピーしました');
+    });
+};
 
 document.getElementById('update').addEventListener('click', saveCustomEmoji);
 document.getElementById('search_word').addEventListener('input', listUpCustomEmoji);

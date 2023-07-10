@@ -66,3 +66,7 @@ body {
     color: red;
     font-size: 0.8rem;
 }
+
+#description {
+    font-size: 0.6rem;
+}

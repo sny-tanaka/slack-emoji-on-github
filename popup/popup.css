@@ -1,5 +1,5 @@
 body {
-    min-width: 300px;
+    min-width: 310px;
 }
 .box {
     display: flex;
@@ -55,6 +55,11 @@ body {
 #emoji_result img {
     width: 2rem;
     height: 2rem;
+    cursor: copy;
+}
+
+#emoji_result img:hover {
+    transform: scale(1.5);
 }
 
 #error {
